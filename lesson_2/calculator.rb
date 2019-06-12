@@ -1,24 +1,32 @@
+require_relative 'config_file'
 def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
 def valid_number?(num)
-  num.to_i() != 0
+  num.to_i.to_s == num
+end
+
+def number?(num)
+  num.to_f.to_s == num
 end
 
 def operation_to_message(op)
-  case op
-  when "1"
-    "Adding"
-  when "2"
-    "Subtracting"
-  when "3"
-    "Multiplying"
-  when "4"
-    "Dividing"
-  end
+  word = case op
+    when "1"
+      "Adding"
+    when "2"
+      "Subtracting"
+    when "3"
+      "Multiplying"
+    when "4"
+      "Dividing"
+    end
+  x = "A random line of code"
+
+  word
 end
-prompt("Welcome to Calculator! Enter your name:")
+prompt($hash_messages[:welcome])
 
 name = nil
 
@@ -26,7 +34,7 @@ loop do
   name = Kernel.gets().chomp()
 
   if name.empty?()
-    prompt("Make sure to use a name.")
+    prompt($hash_messages[:name_error])
   else
     break
   end
@@ -34,27 +42,27 @@ end
 
 prompt("Hi #{name}")
 loop do # main loop
-number1 = nil
-loop do
-    prompt("What is the first number?")
+  number1 = nil
+  loop do
+    prompt($hash_messages[:first_number])
     number1 = Kernel.gets().chomp()
 
     if valid_number?(number1)
       break
     else
-      prompt("Not a valid number.")
+      prompt($hash_messages[:number_error])
     end
   end
 
   number2 = nil
   loop do
-    prompt("What is the second number?")
+    prompt($hash_messages[:second_number])
     number2 = Kernel.gets().chomp()
 
     if valid_number?(number2)
       break
     else
-      prompt("Not a valid number.")
+      prompt($hash_messages[:number_error])
     end
   end
 
@@ -73,7 +81,7 @@ loop do
     if %w(1 2 3 4).include?(operator)
       break
     else
-      prompt("Not a valid operator.")
+      prompt($hash_messages[:operator_error])
     end
   end
 
@@ -92,9 +100,9 @@ loop do
 
   prompt("The result is #{result}!")
 
-  prompt("Do you want to perform another operation? (Y to calculate again)")
+  prompt($hash_messages[:operation_again])
   answer = Kernel.gets().chomp()
   break unless answer.downcase.start_with?('y')
 end
 
-prompt("Thank you for using the Calculator")
+prompt($hash_messages[:thanks])
