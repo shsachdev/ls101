@@ -4,6 +4,20 @@ def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
+def display_result(player, computer)
+  if (player == "rock" && computer == "scissors") ||
+    (player == "scissors" && computer == "paper") ||
+    (player == "paper" && computer == "rock")
+    prompt("You won")
+  elsif (player == "scissors" && computer == "rock") ||
+    (player == "paper" && computer == "scissors") ||
+    (player == "rock" && computer == "paper")
+    prompt("You lost")
+  else
+    prompt("It's a tie!")
+  end
+end
+
 loop do
   choice = " "
   loop do
@@ -21,17 +35,8 @@ loop do
 
   prompt("You chose #{choice}; computer chose #{computer_choice}")
 
-  if (choice == "rock" && computer_choice == "scissors") ||
-    (choice == "scissors" && computer_choice == "paper") ||
-    (choice == "paper" && computer_choice == "rock")
-    prompt("You won")
-  elsif (choice == "scissors" && computer_choice == "rock") ||
-    (choice == "paper" && computer_choice == "scissors") ||
-    (choice == "rock" && computer_choice == "paper")
-    prompt("You lost")
-  else
-    prompt("It's a tie!")
-  end
+  display_result(choice, computer_choice)
+
   prompt("Do you want to play again? y or n")
   answer = Kernel.gets.chomp
   break unless answer.downcase().start_with?("y")
