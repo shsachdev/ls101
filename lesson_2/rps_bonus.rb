@@ -1,4 +1,4 @@
-VALID_CHOICES = %w(rock paper scissors lizard spock)
+VALID_CHOICES = %w(rock paper scissors lizard spock r p sc li sp)
 
 def prompt(message)
   Kernel.puts("=> #{message}")
@@ -40,7 +40,31 @@ loop do
     end
   end
 
+  if choice == "r"
+    choice = "rock"
+  elsif choice == "p"
+    choice = "paper"
+  elsif choice == "sc"
+    choice = "scissors"
+  elsif choice == "li"
+    choice = "lizard"
+  elsif choice == "sp"
+    choice = "spock"
+  end
+
   computer_choice = VALID_CHOICES.sample()
+
+  if computer_choice == "r"
+    computer_choice = "rock"
+  elsif computer_choice == "p"
+    computer_choice = "paper"
+  elsif computer_choice == "sc"
+    computer_choice = "scissors"
+  elsif computer_choice == "li"
+    computer_choice = "lizard"
+  elsif computer_choice == "sp"
+    computer_choice = spock
+  end
 
   prompt("You chose #{choice}; computer chose #{computer_choice}")
 
