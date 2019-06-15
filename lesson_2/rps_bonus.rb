@@ -76,9 +76,9 @@ loop do
 
 
   if win?(choice, computer_choice)
-    i = i + 1
+    i += 1
   elsif win?(choice, computer_choice) == false || choice != computer_choice
-    j = j + 1
+    j += 1
   else
     nil
   end
