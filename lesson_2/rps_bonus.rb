@@ -1,4 +1,4 @@
-VALID_CHOICES = %w(rock paper scissors)
+VALID_CHOICES = %w(rock paper scissors lizard spock)
 
 def prompt(message)
   Kernel.puts("=> #{message}")
@@ -7,7 +7,14 @@ end
 def win?(first, second)
   (first == "rock" && second == "scissors") ||
     (first == "scissors" && second == "paper") ||
-    (first == "paper" && second == "rock")
+    (first == "paper" && second == "rock") ||
+    (first == "lizard" && second == "spock") ||
+    (first == "rock" && second == "lizard") ||
+    (first == "lizard" && second == "paper") ||
+    (first == "scissors" && second == "lizard") ||
+    (first == "spock" && second == "scissors") ||
+    (first == "paper" && second == "spock") ||
+    (first == "spock" && second == "rock")
 end
 
 def display_result(player, computer)
@@ -23,7 +30,7 @@ end
 loop do
   choice = " "
   loop do
-    prompt("Choose one: #{VALID_CHOICES.join(',')}")
+    prompt("Choose one: #{VALID_CHOICES.join(',')}. Feel free to just type the first letter (i.e r for rock etc..)")
     choice = Kernel.gets().chomp()
 
     if VALID_CHOICES.include?(choice)
