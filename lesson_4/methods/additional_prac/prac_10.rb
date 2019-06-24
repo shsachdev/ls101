@@ -6,4 +6,14 @@ munsters = {
   "Marilyn" => { "age" => 23, "gender" => "female"}
 }
 
-# start off here tomorrow
+munsters.each do |key, value|
+  if munsters[key]["age"] < 17
+    munsters[key]["age_group"] = "kid"
+  elsif munsters[key]["age"] > 18 && munsters[key]["age"] < 64
+    munsters[key]["age_group"] = "adult"
+  else
+    munsters[key]["age_group"] = "senior"
+  end
+end
+
+puts munsters
