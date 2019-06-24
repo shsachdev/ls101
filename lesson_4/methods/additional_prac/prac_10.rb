@@ -15,5 +15,3 @@ munsters.each do |key, value|
     munsters[key]["age_group"] = "senior"
   end
 end
-
-puts munsters
