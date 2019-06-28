@@ -12,3 +12,7 @@ countries_and_capitals = {
 # values representing the capital cities of those countries, return a new hash
 # containing only the key-value pairs where the country begins
 # with the letter 'B'.
+
+countries_and_capitals.select do |k,v|
+  k[0] == "B"
+end
