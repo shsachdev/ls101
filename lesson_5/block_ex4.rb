@@ -5,3 +5,5 @@ my_arr = [[18, 7], [3, 12]].each do |arr|
     end
   end
 end
+
+# code is explained in google spreadsheet.
