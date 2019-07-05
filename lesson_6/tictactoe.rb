@@ -47,11 +47,6 @@ def empty_squares(brd)
   brd.keys.select{ |num| brd[num] == INITIAL_MARKER }
 end
 
-# joinor([1, 2])                   # => "1 or 2"
-# joinor([1, 2, 3])                # => "1, 2, or 3"
-# joinor([1, 2, 3], '; ')          # => "1; 2; or 3"
-# joinor([1, 2, 3], ', ', 'and')   # => "1, 2, and 3"
-
 def joinor(array, string1 = ",", string2 = "or")
   final_number = array.pop
   array.join("#{string1}") + " #{string2} #{final_number}"
