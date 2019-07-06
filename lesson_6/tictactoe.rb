@@ -52,6 +52,8 @@ def joinor(array, string1 = ",", string2 = "or")
   array.join("#{string1}") + " #{string2} #{final_number}"
 end
 
+# keep track of score
+
 
 def player_places_piece!(brd)
   square = ""
