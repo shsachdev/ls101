@@ -64,10 +64,35 @@ def player_places_piece!(brd)
   brd[square] = PLAYER_MARKER
 end
 
-def computer_places_piece!(brd)
-  square = empty_squares(brd).sample
-  brd[square] = COMPUTER_MARKER
+def immediate_threat(brd) # if true, returns square under threat.
+  winning_lines = [[1,2,3], [4,5,6], [7,8,9]] + # rows
+                  [[1,4,7], [2,5,8], [3,6,9]] + # columns
+                  [[1,5,9], [3,5,7]] # diagonals
+  winning_lines.each do |line|
+    if (brd[line[0]] == PLAYER_MARKER && brd[line[1]] == PLAYER_MARKER)
+      # puts "Executed" (testing)
+      return brd[line[2]]
+    elsif (brd[line[1]] == PLAYER_MARKER && brd[line[2]] == PLAYER_MARKER)
+      return brd[line[0]]
+    elsif (brd[line[0]] == PLAYER_MARKER && brd[line[2]] == PLAYER_MARKER)
+      return brd[line[1]]
+    end
+  end
+  nil
 end
+
+def computer_places_piece!(brd) # if immmediate_threat, block!
+  if immediate_threat(brd)
+    square = immediate_threat(brd)
+    square = COMPUTER_MARKER
+  else
+    square = empty_squares(brd).sample
+    brd[square] = COMPUTER_MARKER
+  end
+end
+
+
+
 
 def board_full?(brd)
   empty_squares(brd) == []
