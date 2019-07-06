@@ -1,6 +1,6 @@
-a = 0
-def some_method
-  a = 1
+
+def some_method(x)
+  return x + x
 end
 
 puts a

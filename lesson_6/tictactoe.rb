@@ -68,23 +68,19 @@ def immediate_threat(brd) # if true, returns square under threat.
   winning_lines = [[1,2,3], [4,5,6], [7,8,9]] + # rows
                   [[1,4,7], [2,5,8], [3,6,9]] + # columns
                   [[1,5,9], [3,5,7]] # diagonals
-  winning_lines.each do |line|
-    if (brd[line[0]] == PLAYER_MARKER && brd[line[1]] == PLAYER_MARKER)
-      # puts "Executed" (testing)
-      return brd[line[2]]
-    elsif (brd[line[1]] == PLAYER_MARKER && brd[line[2]] == PLAYER_MARKER)
-      return brd[line[0]]
-    elsif (brd[line[0]] == PLAYER_MARKER && brd[line[2]] == PLAYER_MARKER)
-      return brd[line[1]]
-    end
+  winning_lines.select do |line|
+    (brd[line[0]] == PLAYER_MARKER && brd[line[1]] == PLAYER_MARKER) || (brd[line[1]] == PLAYER_MARKER && brd[line[2]] == PLAYER_MARKER) || (brd[line[0]] == PLAYER_MARKER && brd[line[2]] == PLAYER_MARKER)
   end
-  nil
 end
 
 def computer_places_piece!(brd) # if immmediate_threat, block!
-  if immediate_threat(brd)
-    square = immediate_threat(brd)
-    square = COMPUTER_MARKER
+  if immediate_threat(brd) != []
+    square_range = immediate_threat(brd)[0]
+    square_range.each do |num|
+      if brd[num] == INITIAL_MARKER
+        brd[num] = COMPUTER_MARKER
+      end
+    end
   else
     square = empty_squares(brd).sample
     brd[square] = COMPUTER_MARKER
