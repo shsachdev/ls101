@@ -52,9 +52,6 @@ def joinor(array, string1 = ",", string2 = "or")
   array.join("#{string1}") + " #{string2} #{final_number}"
 end
 
-# keep track of score
-
-
 def player_places_piece!(brd)
   square = ""
   loop do
@@ -94,6 +91,9 @@ def detect_winner(brd)
   nil
 end
 
+player_score = 0 # player starts out with zero points.
+comp_score = 0 # computer starts out with zero points.
+
 loop do
 
   board = initialize_board
@@ -111,9 +111,24 @@ loop do
 
   if someone_won?(board)
     prompt "#{detect_winner(board)} won!"
+    if detect_winner(board) == "Player"
+      player_score += 1
+    else
+      comp_score += 1
+    end
   else
     prompt "It's a tie!"
   end
+
+  if player_score == 5
+    prompt "You won!"
+    break
+  elsif comp_score == 5
+    prompt "Computer won!"
+    break
+  end
+
+
   prompt "Do you want to play again? (y or n)"
   answer = gets.chomp
   break unless answer.downcase.start_with?("y")
