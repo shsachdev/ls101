@@ -156,9 +156,8 @@ loop do
     end
   else
     loop do
-      display_board(board)
       computer_places_piece!(board)
-      puts "mamamia"
+      display_board(board)
       break if someone_won?(board) || board_full?(board)
       player_places_piece!(board)
       break if someone_won?(board) || board_full?(board)
