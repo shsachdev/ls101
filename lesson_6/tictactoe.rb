@@ -69,13 +69,13 @@ def immediate_threat(brd) # if true, returns square under threat.
                   [[1,4,7], [2,5,8], [3,6,9]] + # columns
                   [[1,5,9], [3,5,7]] # diagonals
   winning_lines.select do |line|
-    (brd[line[0]] == PLAYER_MARKER && brd[line[1]] == PLAYER_MARKER) || (brd[line[1]] == PLAYER_MARKER && brd[line[2]] == PLAYER_MARKER) || (brd[line[0]] == PLAYER_MARKER && brd[line[2]] == PLAYER_MARKER)
+    (brd[line[0]] == PLAYER_MARKER && brd[line[1]] == PLAYER_MARKER && brd[line[2]] == INITIAL_MARKER ) || (brd[line[1]] == PLAYER_MARKER && brd[line[2]] == PLAYER_MARKER && brd[line[0]] == INITIAL_MARKER) || (brd[line[0]] == PLAYER_MARKER && brd[line[2]] == PLAYER_MARKER && brd[line[1]] == INITIAL_MARKER)
   end
 end
 
-def computer_places_piece!(brd) # if immmediate_threat, block!
+def computer_places_piece!(brd)
   if immediate_threat(brd) != []
-    square_range = immediate_threat(brd)[0]
+    square_range = immediate_threat(brd)[0] # this is the problem! you don't necessarily want to only look at 1st array (within the array); this will only iterate through first danger sequence!
     square_range.each do |num|
       if brd[num] == INITIAL_MARKER
         brd[num] = COMPUTER_MARKER
@@ -86,8 +86,6 @@ def computer_places_piece!(brd) # if immmediate_threat, block!
     brd[square] = COMPUTER_MARKER
   end
 end
-
-
 
 
 def board_full?(brd)
