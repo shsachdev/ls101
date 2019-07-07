@@ -146,12 +146,23 @@ loop do
   board = initialize_board
   first_move = who_goes_first
 
-  loop do
-    display_board(board)
-    player_places_piece!(board)
-    break if someone_won?(board) || board_full?(board)
-    computer_places_piece!(board)
-    break if someone_won?(board) || board_full?(board)
+  if first_move == "Player"
+    loop do
+      display_board(board)
+      player_places_piece!(board)
+      break if someone_won?(board) || board_full?(board)
+      computer_places_piece!(board)
+      break if someone_won?(board) || board_full?(board)
+    end
+  else
+    loop do
+      display_board(board)
+      computer_places_piece!(board)
+      puts "mamamia"
+      break if someone_won?(board) || board_full?(board)
+      player_places_piece!(board)
+      break if someone_won?(board) || board_full?(board)
+    end
   end
 
   display_board(board)
