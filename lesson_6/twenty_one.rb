@@ -11,3 +11,12 @@
 #   - repeat until total >= 17
 # 6. If dealer bust, player wins.
 # 7. Compare cards and declare winner.
+
+
+
+def initialize_deck
+  deck = {hearts: [2,3,4,5,6,7,8,9,10,"jack", "queen", "king", "ace"],
+        diamonds:[2,3,4,5,6,7,8,9,10,"jack", "queen", "king", "ace"],
+        clubs: [2,3,4,5,6,7,8,9,10,"jack", "queen", "king", "ace"],
+        spades: [2,3,4,5,6,7,8,9,10,"jack", "queen", "king", "ace"]}
+end
