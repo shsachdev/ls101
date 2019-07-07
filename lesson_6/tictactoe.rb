@@ -64,7 +64,7 @@ def player_places_piece!(brd)
   brd[square] = PLAYER_MARKER
 end
 
-def immediate_threat(brd) # if true, returns square under threat.
+def immediate_threat(brd) # if immediate threat to comp, returns array in which there is threat.
   winning_lines = [[1,2,3], [4,5,6], [7,8,9]] + # rows
                   [[1,4,7], [2,5,8], [3,6,9]] + # columns
                   [[1,5,9], [3,5,7]] # diagonals
@@ -73,7 +73,7 @@ def immediate_threat(brd) # if true, returns square under threat.
   end
 end
 
-def immediate_opp(brd) # if true, returns square under threat.
+def immediate_opp(brd) # if immediate opportunity to comp, returns array in which there is opportunity.
   winning_lines = [[1,2,3], [4,5,6], [7,8,9]] + # rows
                   [[1,4,7], [2,5,8], [3,6,9]] + # columns
                   [[1,5,9], [3,5,7]] # diagonals
@@ -83,15 +83,15 @@ def immediate_opp(brd) # if true, returns square under threat.
 end
 
 def computer_places_piece!(brd)
-  if immediate_threat(brd) != []
-    square_range = immediate_threat(brd)[0] # this is the problem! you don't necessarily want to only look at 1st array (within the array); this will only iterate through first danger sequence!
+  if immediate_opp(brd) != []
+    square_range = immediate_opp(brd)[0]
     square_range.each do |num|
       if brd[num] == INITIAL_MARKER
         brd[num] = COMPUTER_MARKER
       end
     end
-  elsif immediate_opp(brd) != []
-    square_range = immediate_opp(brd)[0]
+  elsif immediate_threat(brd) != []
+    square_range = immediate_threat(brd)[0]
     square_range.each do |num|
       if brd[num] == INITIAL_MARKER
         brd[num] = COMPUTER_MARKER
