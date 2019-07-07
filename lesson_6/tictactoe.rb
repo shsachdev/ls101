@@ -37,6 +37,16 @@ def display_board(brd)
   puts ""
 end
 
+def who_goes_first # this method prompts user to decide who goes first (player or comp).
+  prompt "Who should go first, player or the computer? (player or comp)"
+  turn_answer = gets.chomp
+  if turn_answer.downcase.start_with?("p")
+    return "Player"
+  else
+    return "Computer"
+  end
+end
+
 def initialize_board
   new_board = {}
   (1..9).each { |num| new_board[num] = INITIAL_MARKER }
@@ -134,6 +144,7 @@ comp_score = 0 # computer starts out with zero points.
 loop do
 
   board = initialize_board
+  first_move = who_goes_first
 
   loop do
     display_board(board)
