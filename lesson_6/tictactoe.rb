@@ -97,6 +97,8 @@ def computer_places_piece!(brd)
         brd[num] = COMPUTER_MARKER
       end
     end
+  elsif brd[5] == INITIAL_MARKER
+    brd[5] = COMPUTER_MARKER
   else
     square = empty_squares(brd).sample
     brd[square] = COMPUTER_MARKER
