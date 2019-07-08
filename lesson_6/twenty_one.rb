@@ -16,8 +16,11 @@ def prompt(msg)
   puts "=> #{msg}"
 end
 
-def card_translator(hand)
-
+def hand_translator_player(hand)
+  converted_hand = hand.map do |array|
+    array[1]
+  end
+  prompt "You have: #{converted_hand.join(" and ")}"
 end
 
 
@@ -57,7 +60,7 @@ dealer_hand = initialize_dealer_cards(new_deck) # first 2 cards for dealer. muta
 
 
 
-prompt "Dealer has:"
-prompt "You have: #{card_translator(player_hand)}"
+# hand_translator(dealer_hand) # ex - Dealer has: Ace and unknown
+hand_translator_player(player_hand) # ex - You have: 2 and 8
 
 # at this stage, the deck has 48 cards (can be verified by "puts new_deck.size")
