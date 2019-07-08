@@ -16,6 +16,10 @@ def prompt(msg)
   puts "=> #{msg}"
 end
 
+def card_translator(hand)
+  
+end
+
 
 def initialize_deck #H2 == 2 of Hearts, HQ == Queen of Hearts
   deck = [["H", "2"], ["H", "3"], ["H", "4"], ["H", "5"], ["H", "6"],["H", "7"], ["H", "8"], ["H", "9"], ["H", "10"],
@@ -29,20 +33,29 @@ end
 
 def initialize_player_cards(crds)
   player_cards = []
-  crds.each do |array|
-
-  end
+  card_1 = crds.delete(crds.sample)
+  card_2 = crds.delete(crds.sample)
+  player_cards << card_1
+  player_cards << card_2
   player_cards
 end
 
 def initialize_dealer_cards(crds)
   dealer_cards = []
-  crds.each do |array|
-
-  end
+  card_1_dealer = crds.delete(crds.sample)
+  card_2_dealer = crds.delete(crds.sample)
+  dealer_cards << card_1_dealer
+  dealer_cards << card_2_dealer
   dealer_cards
 end
 
-new_deck = initialize_deck
-initialize_player_cards(new_deck)
-initialize_dealer_cards(new_deck)
+
+
+new_deck = initialize_deck # fresh new deck of cards.
+player_hand = initialize_player_cards(new_deck) # first 2 cards for players. mutates the new_deck.
+dealer_hand = initialize_dealer_cards(new_deck) # first 2 cards for dealer. mutates the new_deck.
+
+prompt "Dealer has:"
+prompt "You have:"
+
+# at this stage, the deck has 48 cards (can be verified by "puts new_deck.size")
