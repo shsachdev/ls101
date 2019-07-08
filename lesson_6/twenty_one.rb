@@ -16,24 +16,24 @@ def prompt(msg)
   puts "=> #{msg}"
 end
 
-def hand_calculator(hand) # bug here. returns holder instead of ace when displaying card value to player
+def hand_calculator(hand) 
   calc_hand = hand.map do |array| # ["10", "Queen", etc]
     if array[1].to_i != 0
       array[1].to_i
     elsif array[1] == "Queen" || array[1] == "Jack" || array[1] == "King"
       array[1] = 10
     else
-      array[1] = "Holder"
+      array[1] = "Ace"
     end
   end
-  if calc_hand.include?("Holder")
+  if calc_hand.include?("Ace")
     sum = 0
     sum_without_ace = 0
-    calc_hand_sans_ace = calc_hand.reject {|i| i == "Holder"}
+    calc_hand_sans_ace = calc_hand.reject {|i| i == "Ace"}
     calc_hand_sans_ace.each {|a| sum_without_ace += a}
     if sum_without_ace <= 10
       latest = calc_hand.map do |item|
-        if item == "Holder"
+        if item == "Ace"
           item = 11
         else
           item
@@ -43,7 +43,7 @@ def hand_calculator(hand) # bug here. returns holder instead of ace when display
       latest.each {|a| sum += a}
     else
       latest = calc_hand.map do |item|
-        if item == "Holder"
+        if item == "Ace"
           item = 1
         else
           item
