@@ -16,6 +16,14 @@ def prompt(msg)
   puts "=> #{msg}"
 end
 
+def hand_calculator(hand)
+end
+
+def hit(crds, hand)
+  card = crds.delete(crds.sample)
+  hand << card
+end
+
 def hand_translator_player(hand)
   converted_hand = hand.map do |array|
     array[1]
@@ -23,6 +31,12 @@ def hand_translator_player(hand)
   prompt "You have: #{converted_hand.join(" and ")}"
 end
 
+def hand_translator_dealer(hand)
+  converted_hand = hand.map do |array|
+    array[1]
+  end
+  prompt "Dealer has: #{converted_hand[0]} and Unknown Card."
+end
 
 def initialize_deck #H2 == 2 of Hearts, HQ == Queen of Hearts
   deck = [["H", "2"], ["H", "3"], ["H", "4"], ["H", "5"], ["H", "6"],["H", "7"], ["H", "8"], ["H", "9"], ["H", "10"],
@@ -59,8 +73,13 @@ player_hand = initialize_player_cards(new_deck) # first 2 cards for players. mut
 dealer_hand = initialize_dealer_cards(new_deck) # first 2 cards for dealer. mutates the new_deck.
 
 
-
-# hand_translator(dealer_hand) # ex - Dealer has: Ace and unknown
+hand_translator_dealer(dealer_hand) # ex - Dealer has: Ace and unknown
 hand_translator_player(player_hand) # ex - You have: 2 and 8
 
-# at this stage, the deck has 48 cards (can be verified by "puts new_deck.size")
+
+loop do
+  prompt "Do you want to hit or stay?"
+  answer = gets.chomp
+  break if answer.downcase.start_with?("s")
+  hit(new_deck, player_hand)
+end
