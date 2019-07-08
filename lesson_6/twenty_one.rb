@@ -26,8 +26,32 @@ def hand_calculator(hand)
       array[1] = "Holder"
     end
   end
-  sum = 0
-  calc_hand.each {|a| sum += a}
+  if calc_hand.include?("Holder")
+    sum = 0
+    sum_without_ace = 0
+    calc_hand_sans_ace = calc_hand.reject {|i| i == "Holder"}
+    calc_hand_sans_ace.each {|a| sum_without_ace += a}
+    if sum_without_ace <= 10
+      puts "it's evaluating that it's less than or equal to 10"
+      latest = calc_hand.map do |item|
+        if item == "Holder"
+          item = 11
+        end
+      end
+      latest.each {|a| sum += a}
+    else
+      puts "it's evaluating that it's greater than 10"
+      latest = calc_hand.map do |item|
+        if item == "Holder"
+          item = 1
+        end
+      end
+      latest.each {|a| sum += a}
+    end
+  else
+    sum = 0
+    calc_hand.each {|a| sum += a}
+  end
   sum
 end
 
