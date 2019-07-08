@@ -6,7 +6,7 @@
 # 2. Deal cards to player and dealer
 # 3. Player turn: hit or stay
 #   - repeat until bust or "stay"
-# 4. If player bust, dealer wins.
+# 4. If player bust, dealer wins. # need to implement this tomorrow
 # 5. Dealer turn: hit or stay
 #   - repeat until total >= 17
 # 6. If dealer bust, player wins.
@@ -16,14 +16,14 @@ def prompt(msg)
   puts "=> #{msg}"
 end
 
-def hand_calculator(hand) 
+def hand_calculator(hand)
   calc_hand = hand.map do |array| # ["10", "Queen", etc]
     if array[1].to_i != 0
       array[1].to_i
     elsif array[1] == "Queen" || array[1] == "Jack" || array[1] == "King"
       array[1] = 10
     else
-      array[1] = "Ace"
+      array[1]
     end
   end
   if calc_hand.include?("Ace")
