@@ -12,9 +12,12 @@
 # 6. If dealer bust, player wins.
 # 7. Compare cards and declare winner.
 
+def prompt(msg)
+  puts "=> #{msg}"
+end
 
 
-def initialize_deck #H2 = 2 of Hearts
+def initialize_deck #H2 == 2 of Hearts, HQ == Queen of Hearts
   deck = [["H", "2"], ["H", "3"], ["H", "4"], ["H", "5"], ["H", "6"],["H", "7"], ["H", "8"], ["H", "9"], ["H", "10"],
           ["H", "J"], ["H", "Q"], ["H", "K"], ["H", "A"], ["D", "2"], ["D", "3"], ["D", "4"], ["D", "5"], ["D", "6"],
           ["D", "7"], ["D", "8"], ["D", "9"], ["D", "10"],["D", "J"], ["D", "Q"], ["D", "K"], ["D", "A"], ["C", "2"],
@@ -24,10 +27,22 @@ def initialize_deck #H2 = 2 of Hearts
   deck
 end
 
-def initialize_player_cards
-  player_cards = [[],[],[],[],[]]
+def initialize_player_cards(crds)
+  player_cards = []
+  crds.each do |array|
+
+  end
+  player_cards
 end
 
-def initialize_dealer_cards
-  dealer_cards = [[],[],[],[],[]]
+def initialize_dealer_cards(crds)
+  dealer_cards = []
+  crds.each do |array|
+
+  end
+  dealer_cards
 end
+
+new_deck = initialize_deck
+initialize_player_cards(new_deck)
+initialize_dealer_cards(new_deck)
