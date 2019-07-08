@@ -17,6 +17,18 @@ def prompt(msg)
 end
 
 def hand_calculator(hand)
+  calc_hand = hand.map do |array| # ["10", "Queen", etc]
+    if array[1].to_i != 0
+      array[1].to_i
+    elsif array[1] == "Queen" || array[1] == "Jack" || array[1] == "King"
+      array[1] = 10
+    else
+      array[1] = "Holder"
+    end
+  end
+  sum = 0
+  calc_hand.each {|a| sum += a}
+  sum
 end
 
 def hit(crds, hand)
@@ -82,4 +94,9 @@ loop do
   answer = gets.chomp
   break if answer.downcase.start_with?("s")
   hit(new_deck, player_hand)
+  hand_translator_player(player_hand)
+  if hand_calculator(player_hand) > 21
+    prompt "Bust!"
+    break
+  end
 end
