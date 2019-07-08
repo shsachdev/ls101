@@ -16,7 +16,7 @@ def prompt(msg)
   puts "=> #{msg}"
 end
 
-def hand_calculator(hand)
+def hand_calculator(hand) # bug here. returns holder instead of ace when displaying card value to player
   calc_hand = hand.map do |array| # ["10", "Queen", etc]
     if array[1].to_i != 0
       array[1].to_i
@@ -32,18 +32,21 @@ def hand_calculator(hand)
     calc_hand_sans_ace = calc_hand.reject {|i| i == "Holder"}
     calc_hand_sans_ace.each {|a| sum_without_ace += a}
     if sum_without_ace <= 10
-      puts "it's evaluating that it's less than or equal to 10"
       latest = calc_hand.map do |item|
         if item == "Holder"
           item = 11
+        else
+          item
         end
       end
+      puts latest
       latest.each {|a| sum += a}
     else
-      puts "it's evaluating that it's greater than 10"
       latest = calc_hand.map do |item|
         if item == "Holder"
           item = 1
+        else
+          item
         end
       end
       latest.each {|a| sum += a}
