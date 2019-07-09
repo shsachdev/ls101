@@ -148,7 +148,7 @@ loop do
   end
 
   if hand_calculator(player_hand) > 21
-    break # here, it just exits loop -- I want it to ask player if he / she wants to play again. this needs to be fixed. 
+    break # here, it just exits loop -- I want it to ask player if he / she wants to play again. this needs to be fixed.
   else
     prompt "You chose to stay!"
   end
@@ -175,3 +175,5 @@ loop do
   final_answer = gets.chomp
   break unless final_answer.downcase.start_with?("y")
 end
+
+prompt "Thanks for playing!"
