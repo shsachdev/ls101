@@ -39,7 +39,6 @@ def hand_calculator(hand)
           item
         end
       end
-      puts latest
       latest.each {|a| sum += a}
     else
       latest = calc_hand.map do |item|
@@ -105,17 +104,17 @@ def initialize_dealer_cards(crds)
   dealer_cards
 end
 
-
-
-new_deck = initialize_deck # fresh new deck of cards.
-player_hand = initialize_player_cards(new_deck) # first 2 cards for players. mutates the new_deck.
-dealer_hand = initialize_dealer_cards(new_deck) # first 2 cards for dealer. mutates the new_deck.
-
-
-hand_translator_dealer(dealer_hand) # ex - Dealer has: Ace and unknown
-hand_translator_player(player_hand) # ex - You have: 2 and 8
-
 loop do
+
+
+  new_deck = initialize_deck # fresh new deck of cards.
+  player_hand = initialize_player_cards(new_deck) # first 2 cards for players. mutates the new_deck.
+  dealer_hand = initialize_dealer_cards(new_deck) # first 2 cards for dealer. mutates the new_deck.
+
+
+  hand_translator_dealer(dealer_hand) # ex - Dealer has: Ace and unknown
+  hand_translator_player(player_hand) # ex - You have: 2 and 8
+
 
   loop do
     prompt "Do you want to hit or stay?"
@@ -132,8 +131,31 @@ loop do
   if hand_calculator(player_hand) > 21
     break
   else
-    puts "You chose to stay!"
+    prompt "You chose to stay!"
   end
 
+  # need to implement dealer turn now.
+  # Dealer turn: when the player stays, it's the dealer's turn.
+  # The dealer must follow a strict rule for determining whether to hit or stay: hit until the total is at least 17.
+  # If the dealer busts, then the player wins.
 
+  loop do
+    if hand_calculator(dealer_hand) < 17
+      hit(new_deck, dealer_hand)
+      next
+    elsif hand_calculator(dealer_hand) > 21
+      prompt "Dealer busted - you won!"
+      break
+    elsif hand_calculator(dealer_hand) > hand_calculator(player_hand)
+      prompt "Dealer score higher than yours - you lost!"
+      break
+    else
+      prompt "It's a tie!"
+      break
+    end
+  end
+
+  prompt "Thanks for playing! Would you like to play again?"
+  final_answer = gets.chomp
+  break unless final_answer.downcase.start_with?("y")
 end
