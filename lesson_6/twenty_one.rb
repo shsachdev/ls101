@@ -115,15 +115,25 @@ dealer_hand = initialize_dealer_cards(new_deck) # first 2 cards for dealer. muta
 hand_translator_dealer(dealer_hand) # ex - Dealer has: Ace and unknown
 hand_translator_player(player_hand) # ex - You have: 2 and 8
 
-
 loop do
-  prompt "Do you want to hit or stay?"
-  answer = gets.chomp
-  break if answer.downcase.start_with?("s")
-  hit(new_deck, player_hand)
-  hand_translator_player(player_hand)
-  if hand_calculator(player_hand) > 21
-    prompt "Bust!"
-    break
+
+  loop do
+    prompt "Do you want to hit or stay?"
+    answer = gets.chomp
+    break if answer.downcase.start_with?("s")
+    hit(new_deck, player_hand)
+    hand_translator_player(player_hand)
+    if hand_calculator(player_hand) > 21
+      prompt "Bust!"
+      break
+    end
   end
+
+  if hand_calculator(player_hand) > 21
+    break
+  else
+    puts "You chose to stay!"
+  end
+
+
 end
