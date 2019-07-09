@@ -74,7 +74,7 @@ def compare_cards(hand_1, hand_2)
   end
 end
 
-def final_translator_dealer(hand)
+def final_translator_dealer(hand) # translates dealer hand once you no longer need to conceal the second card.
   converted_hand = hand.map do |array|
     array[1]
   end
@@ -141,14 +141,14 @@ loop do
     break if answer.downcase.start_with?("s")
     hit(new_deck, player_hand)
     hand_translator_player(player_hand)
-    if hand_calculator(player_hand) > 21
+    if hand_calculator(player_hand) > 21 # should probably created a busted? method here instead of checking using hand_calculator mehtod
       prompt "Bust!"
       break
     end
   end
 
   if hand_calculator(player_hand) > 21
-    break
+    break # here, it just exits loop -- I want it to ask player if he / she wants to play again. this needs to be fixed. 
   else
     prompt "You chose to stay!"
   end
