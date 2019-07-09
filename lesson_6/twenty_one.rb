@@ -17,7 +17,7 @@ def prompt(msg)
 end
 
 def hand_calculator(hand)
-  calc_hand = hand.map do |array| # ["10", "Queen", etc]
+  calc_hand = hand.map do |array|
     if array[1].to_i != 0
       array[1].to_i
     elsif array[1] == "Queen" || array[1] == "Jack" || array[1] == "King"
@@ -60,6 +60,25 @@ end
 def hit(crds, hand)
   card = crds.delete(crds.sample)
   hand << card
+end
+
+def compare_cards(hand_1, hand_2)
+  hand_translator_player(hand_1)
+  final_translator_dealer(hand_2)
+  if hand_calculator(hand_1) > hand_calculator(hand_2)
+    prompt "You win!"
+  elsif hand_calculator(hand_1) < hand_calculator(hand_2)
+    prompt "You lose!"
+  else
+    prompt "It's a tie!"
+  end
+end
+
+def final_translator_dealer(hand)
+  converted_hand = hand.map do |array|
+    array[1]
+  end
+  prompt "Dealer has: #{converted_hand.join(" and ")}"
 end
 
 def hand_translator_player(hand)
@@ -146,11 +165,8 @@ loop do
     elsif hand_calculator(dealer_hand) > 21
       prompt "Dealer busted - you won!"
       break
-    elsif hand_calculator(dealer_hand) > hand_calculator(player_hand)
-      prompt "Dealer score higher than yours - you lost!"
-      break
     else
-      prompt "It's a tie!"
+      compare_cards(player_hand, dealer_hand)
       break
     end
   end
