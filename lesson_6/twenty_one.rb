@@ -123,11 +123,6 @@ def initialize_dealer_cards(crds)
   dealer_cards
 end
 
-# def play_again?
-#   prompt "Thanks for playing! Would you like to play again?"
-#   final_answer = gets.chomp
-#
-# end
 
 loop do
 
@@ -162,10 +157,6 @@ loop do
     prompt "You chose to stay!"
   end
 
-  # need to implement dealer turn now.
-  # Dealer turn: when the player stays, it's the dealer's turn.
-  # The dealer must follow a strict rule for determining whether to hit or stay: hit until the total is at least 17.
-  # If the dealer busts, then the player wins.
 
   loop do
     if hand_calculator(dealer_hand) < 17
