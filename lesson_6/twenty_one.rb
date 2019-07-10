@@ -123,6 +123,12 @@ def initialize_dealer_cards(crds)
   dealer_cards
 end
 
+# def play_again?
+#   prompt "Thanks for playing! Would you like to play again?"
+#   final_answer = gets.chomp
+#
+# end
+
 loop do
 
 
@@ -148,7 +154,10 @@ loop do
   end
 
   if hand_calculator(player_hand) > 21
-    break # here, it just exits loop -- I want it to ask player if he / she wants to play again. this needs to be fixed.
+    prompt "Thanks for playing! Would you like to play again?"
+    final_answer = gets.chomp
+    break unless final_answer.downcase.start_with?("y")
+    next
   else
     prompt "You chose to stay!"
   end
