@@ -6,6 +6,9 @@ def is_odd?(num)
   end
 end
 
+# note: this is a overly lengthy solution. see solution on LS to
+# write this up more elegantly.
+
 
 puts is_odd?(2)    # => false
 puts is_odd?(5)    # => true
