@@ -23,6 +23,9 @@ end
 # of the hash, in which case, simply add 1 to the value.
 # once you have finished iterating through the array, print out all elements of the hash.
 
+# next time, you could also just invoke the count method, which gives you number of times
+# a particular element occurs.
+
 
 count_occurrences(vehicles)
 
