@@ -1,15 +1,17 @@
 # write a method that takes one argument, a string, and returns a new string with the words in reverse order.
 
 
-def reverse_sentence(str)
-  str_array = str.split("")
+def reverse_sentence(str) # complete
+  str_array = str.split(" ")
   new_array = []
   while str_array != []
     new_array << str_array.pop
   end
-  new_str = new_array.join("")
+  new_str = new_array.join(" ")
   new_str
 end
+
+
 
 
 
