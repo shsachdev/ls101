@@ -1,7 +1,7 @@
 # write a method that takes one argument, a string, and returns a new string with the words in reverse order.
 
 
-def reverse_sentence(str) # complete
+def reverse_sentence(str) # I did it without using the reverse method.
   str_array = str.split(" ")
   new_array = []
   while str_array != []
