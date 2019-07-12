@@ -4,7 +4,7 @@
 def reverse_sentence(str)
   str_array = str.split("")
   new_array = []
-  str_array.each do |char|
+  while str_array != []
     new_array << str_array.pop
   end
   new_str = new_array.join("")
@@ -20,18 +20,9 @@ end
 # finally, it converts new_array to a string using the join method.
 # it returns the string
 
+# look into using last and pop method ruby.
 
 
-
-
-
-puts reverse_sentence("shikhar")
-
-
-
-
-
-
-# puts reverse_sentence('') == ''
-# puts reverse_sentence('Hello World') == 'World Hello'
-# puts reverse_sentence('Reverse these words') == 'words these Reverse'
+puts reverse_sentence('') == ''
+puts reverse_sentence('Hello World') == 'World Hello'
+puts reverse_sentence('Reverse these words') == 'words these Reverse'
