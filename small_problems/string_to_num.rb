@@ -12,10 +12,6 @@ end
 
 
 
-p string_to_integer('4321')
-p string_to_integer('570')
-
-
 
 #   if str_array.include?(num.to_s)
 #     integer_output << num
