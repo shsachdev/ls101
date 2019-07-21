@@ -3,13 +3,27 @@ DIGITS = {0 => "0", 1 => "1", 2 => "2", 3 => "3", 4 => "4",
 
 
 def integer_to_string(number)
-
+  result_array = []
+  if number == 0
+    result_array = [0]
+  else
+    while number > 0
+      result_array.unshift(number%10)
+      number /= 10
+    end
+  end
+  store = result_array.map do |digit|
+    DIGITS[digit]
+  end
+  store.join("")
 end
 
-
+p integer_to_string(4321) == '4321'
+p integer_to_string(0) == "0"
+p integer_to_string(5000) == '5000'
 
 # pseudocode
 
-# convert number to array with those numbers
-# use map method and turn each number into corresponding string using hash
-# output all those strings joined together using join method.
+# convert number to array populated with each digit from number.
+# use map method and turn each digit into corresponding string using hash
+# output all those strings joined together (in the outputted array) using join method.
