@@ -1,29 +1,17 @@
-# def time_of_day(minutes)
-#   if minutes == 0
-#     return "00:00"
-#   elsif (minutes <=> 0) > 0
-#     mm = minutes % 60
-#     dv = ""
-#     if mm <= 9
-#       dv = ":0#{mm}"
-#     else
-#       dv = mm
-#     end
-#     return "something" + ":" + "#{mm}"
-#   else
-#     mm = 60 - (minutes % 60)
-#     return "something" + ":" + "#{mm}"
-#   end
-# end
-
+def time_of_day(num)
+  minutes = num % 60
+  if minutes <= 9
+    minutes = 16
+  end
+  puts "hello"
+end
 
 
 
 # pseudocode
 # input = integer, output = string.
 # output will have a ":" in the middle.
-# convert the minutes into hours.
-# ex: 0 + 60min = 0 + 1hr => output = 01:00
-# ex: 0 - 240min = 0 - 4hr => output = 20:00
-# format is hh:mm
-#
+# format of output is: hh:mm
+# to get the minutes, you do input % 60. so that handles the "second" part of the string output
+  # however, note that if minute is a single digit, you need to append a zero to its beginning.
+# now, to get the first part,
