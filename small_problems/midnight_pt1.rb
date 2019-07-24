@@ -1,3 +1,6 @@
+
+hash = {24 => 00}
+
 def time_of_day(num)
   if num == 0
     return "00:00"
@@ -8,9 +11,26 @@ def time_of_day(num)
   else
     minutes = minutes.to_s
   end
-  hh = num
+  hours = num / 60
+  if num > 24
+    loop do
+      num = num - 24
+      break if num <= 24
+    end
+  elsif num == 24
+    num == 00
+  end
+  num.to_s + ":" + minutes
 end
 
+
+p time_of_day(0) == "00:00"
+p time_of_day(-3) == "23:57"
+p time_of_day(35) == "00:35"
+p time_of_day(-1437) == "00:03"
+p time_of_day(3000) == "02:00"
+p time_of_day(800) == "13:20"
+p time_of_day(-4231) == "01:29"
 
 
 # pseudocode
