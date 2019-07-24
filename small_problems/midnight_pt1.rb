@@ -1,6 +1,3 @@
-
-hash = {24 => 00}
-
 def time_of_day(num)
   if num == 0
     return "00:00"
@@ -12,15 +9,15 @@ def time_of_day(num)
     minutes = minutes.to_s
   end
   hours = num / 60
-  if num > 24
+  if hours > 24
     loop do
-      num = num - 24
-      break if num <= 24
+      hours = hours - 24
+      break if hours <= 24
     end
-  elsif num == 24
-    num == 00
+  elsif hours == 24 || hours == -24
+    hours = "00"
   end
-  num.to_s + ":" + minutes
+  hours.to_s + ":" + minutes
 end
 
 
