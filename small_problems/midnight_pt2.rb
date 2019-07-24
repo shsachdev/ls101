@@ -5,7 +5,7 @@ def after_midnight(string)
     number = string.split(":")
     output = (number[0].to_i * 60) + (number[1].to_i)
   end
-  p output
+  output
 end
 
 def before_midnight(string)
