@@ -1,3 +1,10 @@
+def minute_converter(number)
+  number.digits.unshift(0).join("")
+end
+
+
+
+
 def time_of_day(num)
   if num == 0
     return "00:00"
@@ -14,20 +21,32 @@ def time_of_day(num)
       hours = hours - 24
       break if hours <= 24
     end
+  elsif hours < 0
+    loop do
+      hours = hours + 24
+      break if hours > 0
+    end
   elsif hours == 24 || hours == -24
     hours = "00"
   end
-  hours.to_s + ":" + minutes
+  if hours <= 9 && hours != "00"
+    hours = minute_converter(hours)
+  elsif hours == 24 || hours == -24
+    hours = "00"
+  else
+    hours = hours.to_s
+  end
+  hours + ":" + minutes
 end
 
 
-p time_of_day(0) == "00:00"
-p time_of_day(-3) == "23:57"
-p time_of_day(35) == "00:35"
-p time_of_day(-1437) == "00:03"
-p time_of_day(3000) == "02:00"
-p time_of_day(800) == "13:20"
-p time_of_day(-4231) == "01:29"
+p time_of_day(0) == "00:00" #true
+p time_of_day(-3) == "23:57" #false
+p time_of_day(35) == "00:35" #false
+p time_of_day(-1437) == "00:03" #true
+p time_of_day(3000) == "02:00" #false
+p time_of_day(800) == "13:20" #true
+p time_of_day(-4231) == "01:29" #false
 
 
 # pseudocode
