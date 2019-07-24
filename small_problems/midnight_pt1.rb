@@ -8,7 +8,7 @@ def time_of_day(num)
   else
     minutes = minutes.to_s
   end
-
+  hh = num
 end
 
 
