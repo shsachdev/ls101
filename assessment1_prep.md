@@ -39,3 +39,49 @@ In summary, the output of line 21 is the return value of ```test(a)```, which is
 ```
 
 The `array` object which `a` was initialized with has not been mutated or changed. Further, what one decides to name the `test` method's parameter (in this case `b`) does not matter in this regard.
+
+# Example
+```ruby
+# now with map! instead of just map
+
+def test(b)
+  b.map! {|letter| "I like the letter: #{letter}" }
+end
+
+a = ['a', 'b', 'c']
+p test(a)
+p a
+```
+
+On line 43, we define a method named ```test``` that takes in one argument ```b```.
+
+On line 51, we assign the local variable ```a``` to an array of strings.
+
+On line 52, we invoke the ```puts``` method and pass in the ```test```method as an argument.
+
+The ```test``` method is invoked and we pass in the variable ```a``` as an argument.
+
+On line 47, the variable ```b```, local to the ```test```method, is set to a value of the argument passed in, which is ```a```.
+
+On line 48, the ```map!``` method is invoked on the variable ```b```, and a block is passed in as an argument with a single parameter ```letter```. The ```map!```method iterates through ```b``` and each iteration evaluates to ```true```(i.e is truthy).
+
+This method performs transformation by taking the return value of the block, which is the last line executed in the block. Since this is a destructive method, it mutates the caller, which in this case is ```b```, and the return value of each iteration is used to transform the original array ```b```.
+
+So, line 52 outputs the return value of ```test(a)```, which is:
+
+```ruby
+["I like the letter: a", "I like the letter: b", "I like the letter: c"]
+```
+
+The major change in this question relative to the last one is the last line. This time, on line 53, we get an output of:
+
+```ruby
+["I like the letter: a", "I like the letter: b", "I like the letter: c"]
+```
+
+as opposed to:
+```ruby
+['a', 'b', 'c']
+```
+
+This is because the original object has been modified, since ```map!```is a destructive method. 
