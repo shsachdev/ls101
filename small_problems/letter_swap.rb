@@ -6,10 +6,12 @@ def swap(string)
     elem[-1] = first
     elem
   end
-  mutated_array.join("")
+  mutated_array.join(" ")
 end
 
-p swap("hello there")
+p swap('Oh what a wonderful day it is') == 'hO thaw a londerfuw yad ti si'
+p swap('Abcde') == 'ebcdA'
+p swap('a') == 'a'
 
 # first, input = string. output = string.
 # turn string into an array comprised of each word in string. do this using split method. (" ")
