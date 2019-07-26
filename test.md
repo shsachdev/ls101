@@ -5,7 +5,7 @@
 
 On the other hand, ```puts color``` and ```puts shape``` do not raise any errors. This is because the variable ```color```  is initialized outside of the block alongside the ```times```  method invokation, and so by scoping rules, a local variable initialized outside of a block is accessible inside the block. Here, invoking ```puts``` on ```color``` will output the string ```"red"````.
 
-The variable ```shape``` is initialized local to the ```times``` method, and since we are invoking the ```puts``` method on the variable ```shape``` within the block created alongside the ```times``` method, the variable ```shape```` is accessible and prints the string ```"circle"````.
+The variable ```shape``` is initialized local to the ```times``` method, and since we are invoking the ```puts``` method on the variable ```shape``` within the block created alongside the ```times``` method, the variable ```shape``` is accessible and prints the string ```"circle"```.
 
 
 
