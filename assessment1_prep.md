@@ -114,4 +114,4 @@ Within this block, on line 94, the conditional ```num > 5``` evaluates to true f
 
 The each method ignores the return value of the block and instead returns what was passed in.
 
-```[3,12]``` 
+```[3,12]``` will end up 
