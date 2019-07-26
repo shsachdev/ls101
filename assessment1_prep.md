@@ -114,4 +114,4 @@ Within this block, on line 94, the conditional ```num > 5``` evaluates to true f
 
 The each method ignores the return value of the block and instead returns what was passed in.
 
-"[3,12]" will end up being the return value of the each method on line 93 because that is the last code running within the block spanning the lines 93-97.
+```[3,5]``` will end up being the return value of the each method on line 93 because that is the last code running within the block spanning the lines 93-97.
