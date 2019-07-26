@@ -84,4 +84,34 @@ as opposed to:
 ['a', 'b', 'c']
 ```
 
-This is because the original object has been modified, since ```map!```is a destructive method. 
+This is because the original object has been modified, since ```map!```is a destructive method.
+
+# Example
+
+```ruby
+my_arr = [[18, 7], [3, 12]].each do |arr|
+  arr.each do |num|
+    if num > 5
+      puts num
+    end
+  end
+end
+```
+
+On line 92, we assign the local variable ```my_arr``` to the return value of invoking the each method on the nested array:
+
+```ruby
+[[18, 7], [3, 12]]
+```
+
+Now, on line 92, we pass in a block as an argument into the each method, and the block has a single parameter ```arr```.
+
+The block creates inner scope. Within the block, on line 93, we invoke the each method on the variable ```arr```.
+
+We pass in another block into the each method, and the block takes in a single parameter ```num```.
+
+Within this block, on line 94, the conditional ```num > 5``` evaluates to true for the integers 18 and 12, so those are printed.
+
+The each method ignores the return value of the block and instead returns what was passed in.
+
+```[3,12]``` 
