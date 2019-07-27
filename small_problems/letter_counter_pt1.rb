@@ -2,10 +2,18 @@ def word_sizes(string)
   word_size = string.split(" ").map do |word|
     word.size
   end
-  word_size
+  unique_size = word_size.uniq
+  hash = {}
+  unique_size.each do |elem|
+    hash[elem] = word_size.count(elem)
+  end
+  hash
 end
 
-p word_sizes('Four score and seven.')
+p word_sizes('Four score and seven.') == { 3 => 1, 4 => 1, 5 => 1, 6 => 1 }
+p word_sizes('Hey diddle diddle, the cat and the fiddle!') == { 3 => 5, 6 => 1, 7 => 2 }
+p word_sizes("What's up doc?") == { 6 => 1, 2 => 1, 4 => 1 }
+p word_sizes('') == {}
 
 # input is string, output is a hash
 # first, create an array with each word as an element.
