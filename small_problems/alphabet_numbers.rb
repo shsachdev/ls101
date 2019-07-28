@@ -8,7 +8,9 @@ def alphabetic_number_sort(array)
   array.each do |num|
     word_array << DICTIONARY[num]
   end
-  p word_array.sort
+  word_array.sort.map do |word|
+    DICTIONARY.index(word)
+  end
 end
 
 
