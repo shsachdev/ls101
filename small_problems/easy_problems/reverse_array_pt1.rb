@@ -21,4 +21,5 @@ reverse!(list) == []
 list == []
 
 # input = array, output = array, but reversed; both arrays are the same object.
+# I know how to do this if we were to return a different object, but we must mutate the original array.
 #
