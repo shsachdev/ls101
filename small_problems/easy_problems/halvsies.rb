@@ -1,0 +1,2 @@
+def halvsies(array)
+end
