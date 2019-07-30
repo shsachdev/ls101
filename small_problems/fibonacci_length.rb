@@ -1,3 +1,4 @@
+
 def find_fibonacci_index_by_length(num)
 
 end
@@ -10,3 +11,7 @@ find_fibonacci_index_by_length(10) == 45
 find_fibonacci_index_by_length(100) == 476
 find_fibonacci_index_by_length(1000) == 4782
 find_fibonacci_index_by_length(10000) == 47847
+
+
+
+# input = number, output = number
