@@ -1,4 +1,7 @@
 def reverse!(array)
+  if array == []
+    return array
+  end
   reversed_array = []
   loop do
     reversed_array << array.pop
