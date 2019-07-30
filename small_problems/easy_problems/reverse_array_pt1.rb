@@ -1,25 +1,38 @@
 def reverse!(array)
-  
+  reversed_array = []
+  loop do
+    reversed_array << array.pop
+    break if array.size == 0
+  end
+  loop do
+    array << reversed_array.shift
+    break if reversed_array.size == 0
+  end
+  array
 end
+
+
 
 list = [1,2,3,4]
 result = reverse!(list)
-result == [4, 3, 2, 1]
+p result == [4, 3, 2, 1]
 list == [4, 3, 2, 1]
-list.object_id == result.object_id
+p list.object_id == result.object_id
 
 list = %w(a b e d c)
-reverse!(list) == ["c", "d", "e", "b", "a"]
-list == ["c", "d", "e", "b", "a"]
+p reverse!(list) == ["c", "d", "e", "b", "a"]
+p list == ["c", "d", "e", "b", "a"]
 
 list = ['abc']
-reverse!(list) == ["abc"]
-list == ["abc"]
+p reverse!(list) == ["abc"]
+p list == ["abc"]
 
 list = []
-reverse!(list) == []
-list == []
+p reverse!(list) == []
+p list == []
 
 # input = array, output = array, but reversed; both arrays are the same object.
-# I know how to do this if we were to return a different object, but we must mutate the original array.
-#
+# pop elements from array to new_array until array = [].
+  # this will have array = [], and new_array will be in reverse order.
+# then, call shift on new_array into original array until new_array is empty.
+# then, return original array.
