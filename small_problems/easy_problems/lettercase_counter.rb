@@ -1,4 +1,4 @@
-ALPHABET = ALPHABET = ("a" .. "z").to_a
+ALPHABET = ("a" .. "z").to_a
 
 def letter_case_count(string)
   hash = {lowercase: 0, uppercase: 0, neither: 0}
