@@ -3,6 +3,7 @@ def substrings_at_start(str)
   str.chars.each_with_index do |char, index|
     sliced_array << str.chars[0..index]
   end
+  sliced_array
   sliced_array.map do |sub_array|
     sub_array.join
   end

@@ -7,8 +7,8 @@ def substrings(string)
     string[0] = ""
     break if string.size == 0
   end
-  p master_array.map do |sub_array|
-    puts "hello"
+  master_array.flat_map do |elem|
+    elem
   end
 end
 
