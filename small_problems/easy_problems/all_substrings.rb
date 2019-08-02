@@ -10,7 +10,7 @@ def substrings(string)
   master_array.flatten
 end
 
-p substrings('abcde') == ['a', 'ab', 'abc', 'abcd', 'abcde', 'b', 'bc', 'bcd', 'bcde', 'c', 'cd', 'cde', 'd', 'de', 'e']
+# p substrings('abcde') == ['a', 'ab', 'abc', 'abcd', 'abcde', 'b', 'bc', 'bcd', 'bcde', 'c', 'cd', 'cde', 'd', 'de', 'e']
 
 # input = string, output = array
 # invoke leading_substrings on each sub_string in the original string.
