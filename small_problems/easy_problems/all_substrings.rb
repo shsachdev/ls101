@@ -7,9 +7,7 @@ def substrings(string)
     string[0] = ""
     break if string.size == 0
   end
-  master_array.flat_map do |elem|
-    elem
-  end
+  master_array.flatten
 end
 
 p substrings('abcde') == ['a', 'ab', 'abc', 'abcd', 'abcde', 'b', 'bc', 'bcd', 'bcde', 'c', 'cd', 'cde', 'd', 'de', 'e']
