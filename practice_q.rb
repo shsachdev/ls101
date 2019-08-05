@@ -2,14 +2,11 @@
 VOWELS = ["a", "e", "i", "o", "u"]
 
 def remove_vowels(array_of_strings)
-  array_of_strings.each do |string|
-    string.chars.each do |char|
-      if VOWELS.include?(char)
-        string.delete(char)
-      end
-    end
+  array_of_strings.map do |string|
+    chars = string.chars
+    VOWELS.each {|vowel| chars.delete(vowel)}
+    chars.join
   end
-  array_of_strings
 end
 
 
