@@ -1,6 +1,6 @@
 def high_and_low(str)
   numbers = []
-  str.chars.each do |char|
+  str.split(" ").each do |char|
     if char == "0"
       numbers << char.to_i
     elsif char.to_i != 0
