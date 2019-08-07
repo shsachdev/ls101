@@ -1,8 +1,8 @@
 def sort_array(arr)
-  odds = arr.select {|num| num.odd?}
+  odds = arr.select {|num| num.odd?}.sort
   arr.map do |elem|
     if elem.odd?
-      odds.unshift
+      odds.shift
     else
       elem
     end
