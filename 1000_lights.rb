@@ -8,7 +8,7 @@ def lights_on(total)
   end
   counter1 = 2
   counter2 = 0
-  while counter1 < total 
+  while counter1 < total
     loop do
       light_toggle[counter2] += 1 if (counter2 + 1)%counter1 == 0
       break if counter2 == light_toggle.size - 1
@@ -21,7 +21,7 @@ def lights_on(total)
   light_toggle
 end
 
-lights_on(5)
+lights_on(10)
 
 # we will let 0 represent that the light is off, and 1 represent that the light is on
 
