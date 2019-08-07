@@ -1,14 +1,27 @@
 def lights_on(total)
   light_toggle = []
-  counter = 0
+  placer = 0
   loop do
-    light_toggle[counter] = 1
-    counter = counter + 1
-    break if counter == total
+    light_toggle[placer] = 1
+    placer = placer + 1
+    break if placer == total
   end
-  
+  counter1 = 2
+  counter2 = 0
+  while counter1 < total 
+    loop do
+      light_toggle[counter2] += 1 if (counter2 + 1)%counter1 == 0
+      break if counter2 == light_toggle.size - 1
+      counter2 = counter2 + 1
+      p light_toggle
+    end
+    counter2 = 0
+    counter1 += 1
+  end
+  light_toggle
 end
 
+lights_on(5)
 
 # we will let 0 represent that the light is off, and 1 represent that the light is on
 
@@ -33,5 +46,5 @@ end
 #   end
 #   light_toggle
 # end
-#
+# #
 # lights_on(5)
