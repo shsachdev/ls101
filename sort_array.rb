@@ -8,3 +8,6 @@ def sort_array(arr)
     end
   end
 end
+
+
+p sort_array([1,7,2,4,9,3])
