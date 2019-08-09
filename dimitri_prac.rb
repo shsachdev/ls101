@@ -14,7 +14,7 @@ LETTERS = ("a".."z").to_a
 
 def high(str)
   arr_words = str.split(" ")
-  score_arr = arr_words.map do |word|
+  score_arr = arr_words.map do |word| # to understand this code, you really need to understand how sub_iteration works.
     score = 0
     word.each_char do |char|
       score = score + LETTERS.index(char) + 1
