@@ -20,7 +20,7 @@ p reverse_alternate("Reverse this string, please!") == "Reverse siht string, !es
 
 p reverse_alternate("Have a beer") == "Have a beer"
 
-
+p reverse_alternate("") == ""
 # pseudo-code
 
 # input = string, output = string
