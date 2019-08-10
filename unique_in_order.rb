@@ -7,6 +7,8 @@ def unique_in_order(str)
       i += 1
     else
       unique_arrs << arr[i]
+      i += 1
+    end
   end
   unique_arrs << arr.pop
   unique_arrs
