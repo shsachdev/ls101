@@ -6,12 +6,19 @@ def longest(arr, n)
   sorted_arr = hash.to_a.sort do |a,b|
     b[1] <=> a[1]
   end
-  sorted_arr[n-1][1]
+  p sorted_arr
+  p sorted_arr[n-1][0]
 end
 
 
-p longest(['Hello','World','Codewars','Katas'],3) == "World"
-p longest(['Hello','World','Codewars','Katas'],4) == "Katas"
+
+
+def longest(arr,n) # this is the probably the best way to solve this problem.
+  arr.sort_by { |s| -s.length }[n-1]
+end
+
+# p longest(['Hello','World','Codewars','Katas'],3) == "World"
+# p longest(['Hello','World','Codewars','Katas'],4) == "Katas"
 p longest(['aa', 'bb', 'cc', 'dd', 'eee', 'b', 'f', 'ff', 'hhh', 'gggg'],4) == "aa"
 p longest(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k'],1) == "a"
 p longest(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k','l'],1) == "a"
