@@ -1,8 +1,12 @@
 def longest(arr, n)
-  str_size = arr.map do |str|
-    str.size
+  hash = {}
+  arr.each do |str|
+    hash[str] = str.size
   end
-
+  sorted_arr = hash.to_a.sort do |a,b|
+    b[1] <=> a[1]
+  end
+  sorted_arr[n-1][1]
 end
 
 
