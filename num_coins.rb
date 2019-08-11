@@ -11,6 +11,7 @@ end
 
 p num_coins(33) == 5
 p num_coins(100) == 4
+p num_coins(31) == 3
 
 # 33: 1 quarter (25), 1 nickel (5), 3 pennies (1), [dime 10]
 
