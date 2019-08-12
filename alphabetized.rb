@@ -1,14 +1,17 @@
 ALPHABET = ("a".."z").to_a
 
-def alphabetized(str)
-  arr = str.chars
-  letters_only = arr.select do |char|
-    char if ALPHABET.include?(char.downcase)
-  end
-  sorted = letters_only.sort_by {|elem| elem.downcase}
-  p sorted.join
-end
+# def alphabetized(str)
+#   arr = str.chars
+#   letters_only = arr.select do |char|
+#     char if ALPHABET.include?(char.downcase)
+#   end
+#   sorted = letters_only.sort_by(&:downcase)
+#   p sorted.join
+# end
 
+def alphabetized(s)
+  s.scan(/[a-z]/i).sort_by(&:downcase).join
+end
 
 # Re-order the characters of a string, so that they are concatenated into a new
 # string in "case-insensitively-alphabetical-order-of-appearance" order.
