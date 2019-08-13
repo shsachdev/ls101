@@ -1,5 +1,6 @@
 def sum_consecutives(array)
-
+  sum = 0
+  
 end
 
 # You are given a array which contains only integers (positive and negative).
@@ -16,3 +17,11 @@ p sum_consecutives([-5,-5,7,7,12,0]) == [-10,14,12,0]
 # input = array, output = array
 
 # Algorithm
+
+# 1. iterate through array
+
+# 2. start summing until consecutive numbers are not the same.
+
+# 3. store sum in some array.
+
+# 4. return this array.
