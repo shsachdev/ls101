@@ -6,6 +6,7 @@ def duplicate_count(str)
       counter << char.downcase
     else
       duplicates << char.downcase
+    end
   end
   counter.uniq.size
 end

@@ -1,0 +1,2 @@
+def persistence(num)
+end
