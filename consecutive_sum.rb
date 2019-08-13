@@ -1,6 +1,9 @@
 def sum_consecutives(array)
   sum = 0
-  
+  sums = []
+  array.each_with_index do |num, index|
+    if
+  end
 end
 
 # You are given a array which contains only integers (positive and negative).
@@ -19,6 +22,8 @@ p sum_consecutives([-5,-5,7,7,12,0]) == [-10,14,12,0]
 # Algorithm
 
 # 1. iterate through array
+
+  #
 
 # 2. start summing until consecutive numbers are not the same.
 
