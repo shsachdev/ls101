@@ -23,6 +23,14 @@ end
 
 p find_substrings("Tar") == ["T", "Ta", "Tar", "a", "ar", "r"]
 
+p find_substrings('abcde') == [
+  'a', 'ab', 'abc', 'abcd', 'abcde',
+  'b', 'bc', 'bcd', 'bcde',
+  'c', 'cd', 'cde',
+  'd', 'de',
+  'e'
+]
+
 # Algorithm
 
 # 1. Create a method that returns a list of all substrings of a string that start
