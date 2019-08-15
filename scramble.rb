@@ -1,15 +1,8 @@
-def arr_join(array)
-  array.join
-end
-
-
 def scramble(str1, str2)
-  permutations_str1 = str1.chars.permutation.to_a
-  cleaned = permutations_str1.map do |sub_arr|
-    arr_join(sub_arr)
-  end
-  p cleaned
-  if cleaned.include?(str2)
+  characters_in_str1 = str1.chars
+  characters_in_str2 = str2.chars
+  arr = characters_in_str2.select {|char| characters_in_str1.include?(char)}
+  if arr.size == characters_in_str2.size
     true
   else
     false
@@ -36,7 +29,5 @@ p scramble('scriptingjava','javascript') == true
 
 # Algorithm
 
-# 1. Find all re-arrangements of str1 => rearranged_arr
-  #
-
-# 2. If rearranged_arr.include?(str2) => true, else false
+# just check if each char that is in str2, is also in str1.
+  # if yes, true. else, false.
