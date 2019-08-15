@@ -1,11 +1,34 @@
+def char_occurence(arr)
+  hash = {}
+  arr.each do |char|
+    if hash.include?(char)
+      hash[char] += 1
+    else
+      hash[char] = 1
+    end
+  end
+  hash
+end
+
+# input = arr of characters, output = hash
+
+
 def scramble(str1, str2)
   characters_in_str1 = str1.chars
   characters_in_str2 = str2.chars
-  arr = characters_in_str2.select {|char| characters_in_str1.include?(char)}
-  if arr.size == characters_in_str2.size
-    true
-  else
+  hash_str1 = char_occurence(characters_in_str1)
+  hash_str2 = char_occurence(characters_in_str2)
+  verification = hash_str2.map do |key, value|
+    if hash_str1.include?(key) && value <= hash_str1[key]
+      true
+    else
+      false
+    end
+  end
+  if verification.include?(false)
     false
+  else
+    true
   end
 end
 
@@ -29,5 +52,13 @@ p scramble('scriptingjava','javascript') == true
 
 # Algorithm
 
-# just check if each char that is in str2, is also in str1.
-  # if yes, true. else, false.
+# 1. Get all the characters from str1.
+
+# 2. Get all the characters from str2.
+
+# 3. Create hash1 of each char and occurence in str1.
+
+# 4. Crease hash2 of each char and occurence in str2.
+
+# 5. Compare hashes; if hash1 include each key in hash2 and value is equal
+# or greater, then return true.
