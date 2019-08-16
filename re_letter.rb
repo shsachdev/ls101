@@ -1,27 +1,23 @@
-NUMS = (0..9).to_a
+NUMS = (1..9).to_a
 
 def re_letter(str)
-  characters = str.chars
-  converted = characters.map do |char|
-    char.to_i
-  end
-  hash = {}
-  characters.each do |char|
+  array = str.chars
+  numbers = []
+  array.each do |char|
     if NUMS.include?(char.to_i)
-      if hash.include?(char.to_i)
-        hash[char.to_i] = hash[char.to_i] + 1
-      else
-        hash[char.to_i] = 1
-      end
+      numbers << char.to_i
+    elsif char == "0"
+      numbers << char.to_i
     end
   end
-  if hash.size == 0
-    nil
+  if numbers == []
+    return nil
   end
-  arr = hash.sort_by do |key, value|
-    value
+  count_nums = numbers.map do |num|
+    numbers.count(num)
   end
-  arr.reverse
+  index = count_nums.index(count_nums.max)
+  numbers[index]
 end
 
 
@@ -31,7 +27,7 @@ end
 
 p re_letter('There isn\' any number here!') == nil
 p re_letter('%^&*()!') == nil
-p re_letter('111222333')
+p re_letter('111222333') == 1
 p re_letter('1234335521444') == 4
 p re_letter('') == nil
 p re_letter('011-555-333-23') == 3
@@ -44,16 +40,6 @@ p re_letter('444352893599119') == 9
 
 # test-cases: return nil if string does not contain number.
 
-# Alogorithm
+# Algorithm
 
-# 1. Initialize array filled with numbers 0-9 (nums)
-
-# 2. turn string into its chars.
-
-# 3. check if any numbers. if not => return nil
-
-# 4. find number of times each number occurs => store number and occurence in hash.
-
-# 5. find number with max value, in order of which one came first.
-
-# 6. return this number
+# 1.
