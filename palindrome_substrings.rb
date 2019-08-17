@@ -1,4 +1,32 @@
+def first_substring(str)
+  first_substrings = []
+  str.each_char.with_index do |char, index|
+    first_substrings << str[0..index]
+  end
+  first_substrings
+end
+
+def all_substrings(str)
+  arr_substrings = []
+  loop do
+    arr_substrings << first_substring(str)
+    str[0] = ""
+    break if str == ""
+  end
+  arr_substrings.flatten
+end
+
+
+def one_char_killer(word)
+  if word.size == 1
+    false
+  else
+    true
+  end
+end
+
 def palindromes(str)
+  substrings = all_substrings(str).select {|string| string.reverse == string && one_char_killer(string)}
 end
 
 # Write a method that returns a list of all substrings of a string that are palindromic.
@@ -28,4 +56,6 @@ p palindromes('knitting cassettes') == [
 
 # 1. find all substrings of an input string.
 
-# 2. find subset that are palindromes, and return as an array. 
+# 2. find subset that are palindromes, and return as an array.
+
+  # reject all substrings that only have 1 character.
