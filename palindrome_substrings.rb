@@ -26,4 +26,6 @@ p palindromes('knitting cassettes') == [
 
 # Algorithm
 
-# 1.
+# 1. find all substrings of an input string.
+
+# 2. find subset that are palindromes, and return as an array. 
