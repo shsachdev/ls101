@@ -14,7 +14,7 @@ def checker_all(arr)
 end
 
 def checker(hsh)
-  evens = []  
+  evens = []
   hsh.each do |key,value|
     evens << key if checker_all(value)
   end
