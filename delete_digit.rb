@@ -1,33 +1,36 @@
 # Given an integer num, find the maximal number you can obtain by deleting exactly
 # one digit of the given number.
 
-# p delete_digit(152) == 52
-#
-# p delete_digit(1001) == 101
 
 def get_two_digits(arr)
   first_index = 0
   element_combinations = []
   loop do
     break if first_index == arr.size - 1
+    second_index = first_index + 1
     loop do
-      second_index = first_index + 1
       element_combinations << arr[first_index].to_s + arr[second_index].to_s
       second_index = second_index + 1
       break if second_index == arr.size
     end
-    p "hello"
     first_index = first_index + 1
   end
   p element_combinations
 end
 
-get_two_digits([1,2,3])
 
-# def delete_digit(num)
-#   digits_num = num.digits.reverse
-#   array = get_two_digits(digits_num)
-# end
+def delete_digit(num)
+  digits_num = num.digits.reverse
+  two_digit_nums = []
+  get_two_digits(digits_num).each do |str|
+    two_digit_nums << str.to_i && two_digit_nums << str.reverse.to_i
+  end
+  two_digit_nums.max
+end
+
+p delete_digit(152) == 52
+
+p delete_digit(1001) == 101
 
 
 # pseudocode
