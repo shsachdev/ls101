@@ -13,7 +13,11 @@ def find_missing_letter(arr)
     end
   end
   needed_idx = values.each_index.select {|i| values[i] != 1}[0]
-  ALPHABET[indexes[needed_idx] + 1]
+  if arr[0] == arr[0].upcase
+    ALPHABET[indexes[needed_idx] + 1].upcase
+  else
+    ALPHABET[indexes[needed_idx] + 1]
+  end
 end
 
 puts find_missing_letter(["a","b","c","d","f"]) == "e"
