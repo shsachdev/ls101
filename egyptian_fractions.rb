@@ -5,10 +5,31 @@
 
 # egyptian fraction == sum of a series of distinct unit fractions.
 
-# Write two methods: one that takes a Rational number as an argument, and returns
+# Write two methods:
+
+# one that takes a Rational number as an argument, and returns
 # an Array of the denominators that are part of an Egyptian Fraction representation
-# of the number, and another that takes an Array of numbers in the same format,
+# of the number.
+
+# and another that takes an Array of numbers in the same format,
 # and calculates the resulting Rational number. You will need to use the Rational class
 # provided by Ruby.
 
-puts Rational(1)
+# examples:
+
+# egyptian(Rational(2, 1))    # -> [1, 2, 3, 6] (because 1/1 + 1/2 + 1/3 + 1/6 == 2)
+
+# egyptian(Rational(3, 1))    # -> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 230, 57960]
+
+
+def egyptian(fraction)
+  if fraction.numerator == 1
+    return [fraction.denominator]
+  end
+
+  
+end
+
+# input = fraction, output = array
+
+# Algorithm
