@@ -22,14 +22,33 @@
 # egyptian(Rational(3, 1))    # -> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 230, 57960]
 
 
-def egyptian(fraction)
-  if fraction.numerator == 1
-    return [fraction.denominator]
+def egyptian(target_value)
+  denominators = []
+  unit_denominator = 1
+  until target_value == 0
+    unit_fraction = Rational(1, unit_denominator)
+    if unit_fraction <= target_value
+      target_value -= unit_fraction
+      denominators << unit_denominator
+    end
+
+    unit_denominator += 1
   end
 
-  
+  denominators
+end
+
+def unegyptian(denominators)
+  denominators.inject(Rational(0)) do |accum, denominator|
+    accum + Rational(1, denominator)
+  end
 end
 
 # input = fraction, output = array
 
 # Algorithm
+
+# Consider a fraction t/b.
+
+# The method is to find the biggest unit fraction we can and take it from
+# t/b. With what is left, we repeat the process.
