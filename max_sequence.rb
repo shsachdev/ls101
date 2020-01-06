@@ -3,8 +3,6 @@
 
 # example:
 
-max_sequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]) == 6
-
 # if the sum is made up of all negative numbers, return 0. if all positive, just
 # return sum of the whole array.
 
@@ -20,8 +18,13 @@ def max_sequence(arr)
   sums = []
 
   arr.each_with_index do |num, index|
-    arr[]
+    i = index + 1
+    while i <= arr.size - 1
+      sums << arr[index..i]
+      i = i + 1
+    end
   end
+  sums.map {|sub_arr| sub_arr.sum}.max
 end
 
 puts max_sequence([]) == 0
