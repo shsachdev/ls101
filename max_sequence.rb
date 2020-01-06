@@ -18,7 +18,7 @@ def max_sequence(arr)
   sums = []
 
   arr.each_with_index do |num, index|
-    i = index + 1
+    i = index
     while i <= arr.size - 1
       sums << arr[index..i]
       i = i + 1
