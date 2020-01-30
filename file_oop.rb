@@ -1,4 +1,5 @@
 class File
+
   attr_accessor :name, :byte_content
 
   def initialize(name)
@@ -16,7 +17,7 @@ class File
   end
 
   def to_s
-    "#{name}.#{FORMAT}"
+    "#{name}.#{self.class::FORMAT}"
   end
 end
 
