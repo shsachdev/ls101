@@ -16,4 +16,13 @@ p max_multiple(37,200) == 185
 
 
 
-#
+# redoing it for fun :)
+
+def max_multiple 
+  possible_numbers = (divisor..bound).to_a
+  remainder_zero_numbers = []
+  possible_numbers.each do |num|
+    remainder_zero_numbers << num if num%divisor == 0
+  end
+  remainder_zero_numbers.max
+end
