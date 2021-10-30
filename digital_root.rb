@@ -17,10 +17,6 @@
   # during each iteration, re-assign i to return value of get_sum
 
 def digital_root(n)
-  if n.to_s.chars.length == 1
-    return n
-  end
-
   digits = n.to_s.chars.length
 
   while digits > 1
