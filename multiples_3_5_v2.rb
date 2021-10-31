@@ -27,7 +27,7 @@
 def find_sum_of_multiples(n)
   range_of_numbers = (1..n-1).to_a
   sum = 0
-  range_of_numbers.each do |num|
+  range_of_numbers.each do |num|,6
     if num % 3 == 0 and num % 5 == 0
       p num 
       sum += num 
